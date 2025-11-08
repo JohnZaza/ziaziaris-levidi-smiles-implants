@@ -1,49 +1,52 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Smile, Zap, Shield, Heart, Scan, Crown, FileText, Syringe } from 'lucide-react';
+import { Smile, Zap, Crown, FileText, Syringe, Scan } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: <Zap className="h-8 w-8 text-primary" />,
-      title: "Prosthetic Dentistry",
-      description: "Tooth and implant-supported restorations",
-      details: "Comprehensive prosthetic solutions including dental implants, crowns, bridges, and full-arch restorations. Using the Aoralscan Elite with photogrammetry technology, we achieve exceptional accuracy for implant-supported restorations. Our digital workflow enables same-day bridge fabrication - from broken tooth to final restoration in just 4-5 hours.",
+      title: t.services.prosthetic.title,
+      description: t.services.prosthetic.desc,
+      details: t.services.prosthetic.details,
       featured: true
     },
     {
       icon: <Smile className="h-8 w-8 text-primary" />,
-      title: "Restorative Dentistry",
-      description: "Premium composite resin fillings with dental dam isolation",
-      details: "All composite resin restorations (white fillings) are performed with dental dam isolation - essential for longevity and optimal bonding. We specialize in composite and porcelain veneers, inlays/onlays, and conservative treatments for worn dentition. Every procedure is performed with magnification loupes for enhanced precision.",
+      title: t.services.restorative.title,
+      description: t.services.restorative.desc,
+      details: t.services.restorative.details,
       featured: true
     },
     {
       icon: <Syringe className="h-8 w-8 text-primary" />,
-      title: "Endodontic Therapy",
-      description: "Modern root canal treatments",
-      details: "Root canal treatments performed using rotary files for precision and efficiency. Advanced techniques ensure comfortable treatment and optimal outcomes for saving natural teeth.",
+      title: t.services.endodontic.title,
+      description: t.services.endodontic.desc,
+      details: t.services.endodontic.details,
       featured: false
     },
     {
       icon: <Crown className="h-8 w-8 text-primary" />,
-      title: "Crown Lengthening",
-      description: "Surgical procedures with diathermy",
-      details: "Crown lengthening surgery performed using diathermy for precise tissue management. We collaborate with a military oral and maxillofacial surgeon for complex surgical cases.",
+      title: t.services.crownLengthening.title,
+      description: t.services.crownLengthening.desc,
+      details: t.services.crownLengthening.details,
       featured: false
     },
     {
       icon: <Scan className="h-8 w-8 text-primary" />,
-      title: "Digital Workflow",
-      description: "Aoralscan Elite - The only true photogrammetry scanner",
-      details: "Revolutionary intraoral scanner with built-in photogrammetry technology for full-arch implant scanning with exceptional accuracy. Unlike other systems where photogrammetry is an external add-on, the Aoralscan Elite has this technology fully integrated for seamless digital impressions.",
+      title: t.services.digitalWorkflow.title,
+      description: t.services.digitalWorkflow.desc,
+      details: t.services.digitalWorkflow.details,
       featured: false
     },
     {
       icon: <FileText className="h-8 w-8 text-primary" />,
-      title: "Complete Practice Management",
-      description: "Modern patient care infrastructure",
-      details: "Fully equipped practice with dental assistant support, digital patient records, and automated recall notifications for follow-up appointments ensuring continuity of care.",
+      title: t.services.practice.title,
+      description: t.services.practice.desc,
+      details: t.services.practice.details,
       featured: false
     }
   ];
@@ -52,9 +55,9 @@ const Services = () => {
     <section className="py-20 bg-gradient-to-b from-background to-muted/30" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Our Specialized Services</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4">{t.services.heading}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cutting-edge prosthetic and restorative dentistry powered by digital technology
+            {t.services.subheading}
           </p>
         </div>
         
