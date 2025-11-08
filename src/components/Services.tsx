@@ -1,83 +1,96 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Smile, Zap, Shield, Heart } from 'lucide-react';
+import { Smile, Zap, Shield, Heart, Scan, Crown, FileText, Syringe } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: <Zap className="h-8 w-8 text-blue-600" />,
-      title: "Dental Implants",
-      description: "Advanced implant solutions for missing teeth",
-      details: "Our state-of-the-art dental implants provide a permanent solution for missing teeth. Using titanium implants that integrate with your jawbone, we restore both function and aesthetics. The procedure involves careful planning, precise placement, and a healing period that results in a natural-looking, durable tooth replacement that can last a lifetime with proper care.",
+      icon: <Zap className="h-8 w-8 text-primary" />,
+      title: "Prosthetic Dentistry",
+      description: "Tooth and implant-supported restorations",
+      details: "Comprehensive prosthetic solutions including dental implants, crowns, bridges, and full-arch restorations. Using the Aoralscan Elite with photogrammetry technology, we achieve exceptional accuracy for implant-supported restorations. Our digital workflow enables same-day bridge fabrication - from broken tooth to final restoration in just 4-5 hours.",
       featured: true
     },
     {
-      icon: <Heart className="h-8 w-8 text-blue-600" />,
-      title: "Aponeurosis Treatment",
-      description: "Specialized treatment for facial muscle and tissue conditions",
-      details: "Aponeurosis treatment addresses conditions affecting the facial muscles and connective tissues around the oral cavity. This specialized procedure can improve both functional and aesthetic concerns, helping restore proper muscle function and facial symmetry. Our approach combines modern techniques with careful attention to preserving natural facial expressions and movements.",
+      icon: <Smile className="h-8 w-8 text-primary" />,
+      title: "Restorative Dentistry",
+      description: "Premium composite resin fillings with dental dam isolation",
+      details: "All composite resin restorations (white fillings) are performed with dental dam isolation - essential for longevity and optimal bonding. We specialize in composite and porcelain veneers, inlays/onlays, and conservative treatments for worn dentition. Every procedure is performed with magnification loupes for enhanced precision.",
       featured: true
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-600" />,
-      title: "Dental Fillings",
-      description: "High-quality restorations for damaged teeth",
-      details: "We provide durable, aesthetic dental fillings using the latest materials. Our composite resin fillings match your natural tooth color and provide excellent durability while preserving as much of your natural tooth structure as possible.",
+      icon: <Syringe className="h-8 w-8 text-primary" />,
+      title: "Endodontic Therapy",
+      description: "Modern root canal treatments",
+      details: "Root canal treatments performed using rotary files for precision and efficiency. Advanced techniques ensure comfortable treatment and optimal outcomes for saving natural teeth.",
       featured: false
     },
     {
-      icon: <Smile className="h-8 w-8 text-blue-600" />,
-      title: "Comprehensive Oral Care",
-      description: "Complete dental health solutions",
-      details: "From routine cleanings to complex procedures, we provide comprehensive oral healthcare tailored to your individual needs. Our preventive approach helps maintain your oral health and catch potential issues early.",
+      icon: <Crown className="h-8 w-8 text-primary" />,
+      title: "Crown Lengthening",
+      description: "Surgical procedures with diathermy",
+      details: "Crown lengthening surgery performed using diathermy for precise tissue management. We collaborate with a military oral and maxillofacial surgeon for complex surgical cases.",
+      featured: false
+    },
+    {
+      icon: <Scan className="h-8 w-8 text-primary" />,
+      title: "Digital Workflow",
+      description: "Aoralscan Elite - The only true photogrammetry scanner",
+      details: "Revolutionary intraoral scanner with built-in photogrammetry technology for full-arch implant scanning with exceptional accuracy. Unlike other systems where photogrammetry is an external add-on, the Aoralscan Elite has this technology fully integrated for seamless digital impressions.",
+      featured: false
+    },
+    {
+      icon: <FileText className="h-8 w-8 text-primary" />,
+      title: "Complete Practice Management",
+      description: "Modern patient care infrastructure",
+      details: "Fully equipped practice with dental assistant support, digital patient records, and automated recall notifications for follow-up appointments ensuring continuity of care.",
       featured: false
     }
   ];
 
   return (
-    <section className="py-20 bg-white" id="services">
+    <section className="py-20 bg-gradient-to-b from-background to-muted/30" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Specialized Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Advanced dental treatments with a focus on implants and aponeurosis procedures
+          <h2 className="text-4xl font-bold text-foreground mb-4">Our Specialized Services</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Cutting-edge prosthetic and restorative dentistry powered by digital technology
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {services.filter(service => service.featured).map((service, index) => (
-            <Card key={index} className="border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
+            <Card key={index} className="border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group bg-card">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-3 bg-blue-50 rounded-full w-fit">
+                <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <CardTitle className="text-2xl text-gray-900">{service.title}</CardTitle>
-                <CardDescription className="text-lg text-blue-600 font-medium">
+                <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
+                <CardDescription className="text-lg text-primary font-medium">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed text-center">{service.details}</p>
+                <p className="text-muted-foreground leading-relaxed text-center">{service.details}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.filter(service => !service.featured).map((service, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow duration-300">
+            <Card key={index} className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group bg-card border-border">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-3 bg-blue-50 rounded-full w-fit">
+                <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
-                <CardDescription className="text-blue-600 font-medium">
+                <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
+                <CardDescription className="text-primary font-medium">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed text-center">{service.details}</p>
+                <p className="text-muted-foreground leading-relaxed text-center">{service.details}</p>
               </CardContent>
             </Card>
           ))}
