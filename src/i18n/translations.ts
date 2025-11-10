@@ -9,15 +9,35 @@ export const translations = {
     },
     // Hero
     hero: {
-      title: "Δρ. Δημήτρης Ζιαζιάρης",
-      subtitle: "Προηγμένη Ψηφιακή Οδοντιατρική στο Λεβίδι, Αρκαδία",
-      description: "Εξειδίκευση στην προσθετική και αποκαταστατική οδοντιατρική με υπερσύγχρονες ψηφιακές ροές εργασίας. Κατασκευή γέφυρας την ίδια μέρα χρησιμοποιώντας τον επαναστατικό ενδοστοματικό σαρωτή",
-      scanner: "Aoralscan Elite",
-      feature1: "Πλήρους τόξου σάρωση εμφυτευμάτων με τεχνολογία φωτογραμμετρίας",
-      feature2: "Αποκαταστάσεις την ίδια μέρα (4-5 ώρες)",
-      feature3: "Απομόνωση με οδοντικό απομονωτήρα για όλες τις σύνθετες αποκαταστάσεις",
-      bookAppt: "Κλείστε Ραντεβού",
-      location: "Λεβίδι, Αρκαδία - Αριστεία στην Ψηφιακή Οδοντιατρική"
+      title: 'Δρ. Δημήτρης Ζιαζιάρης',
+      subtitle: 'Προσθετική & Αποκαταστατική Οδοντιατρική',
+      description: 'Εξειδικευμένος σε προσθετική (οδοντικές & εμφυτευματικές αποκαταστάσεις) και αποκαταστατική οδοντιατρική (εμφράξεις). Χρησιμοποιώ πάντα απομόνωση με rubber dam, απαραίτητη για αποκαταστάσεις με σύνθετη ρητίνη.',
+      scanner: 'Aoralscan Elite Intraoral Scanner για Ψηφιακές Αποτυπώσεις',
+      featureTitle1: 'Φωτογραμμετρία',
+      feature1: 'Πλήρης ψηφιακή απεικόνιση εμφυτευμάτων',
+      featureTitle2: 'Ταχύτητα',
+      feature2: 'Αποκαταστάσεις την ίδια μέρα σε 4-5 ώρες',
+      featureTitle3: 'Ακρίβεια',
+      feature3: 'Απομόνωση rubber dam για όλες τις εμφράξεις',
+      bookAppt: 'Κλείστε Ραντεβού',
+      location: 'Λεβίδι, Αρκαδία'
+    },
+    booking: {
+      confirmTitle: 'Επιβεβαίωση Ραντεβού',
+      confirmMessage: 'Θέλετε σίγουρα να κλείσετε ραντεβού; Θα σας καλέσουμε για επιβεβαίωση.',
+      confirmButton: 'Ναι, Συνέχεια',
+      cancelButton: 'Ακύρωση',
+      formTitle: 'Κλείστε το Ραντεβού σας',
+      formDescription: 'Συμπληρώστε τα στοιχεία σας και θα επικοινωνήσουμε μαζί σας για επιβεβαίωση.',
+      firstName: 'Όνομα',
+      lastName: 'Επώνυμο',
+      phone: 'Τηλέφωνο',
+      email: 'Email (προαιρετικό)',
+      address: 'Διεύθυνση (προαιρετικό)',
+      preferredDates: 'Προτιμώμενες Ημερομηνίες',
+      submit: 'Υποβολή Αιτήματος',
+      successTitle: 'Επιτυχής Υποβολή!',
+      successMessage: 'Λάβαμε το αίτημά σας. Θα επικοινωνήσουμε μαζί σας σύντομα για επιβεβαίωση του ραντεβού.'
     },
     // Services
     services: {
@@ -105,15 +125,35 @@ export const translations = {
     },
     // Hero
     hero: {
-      title: "Dr. Dimitris Ziaziaris",
-      subtitle: "Advanced Digital Dentistry in Levidi, Arcadia",
-      description: "Specializing in prosthetic and restorative dentistry with cutting-edge digital workflows. Same-day bridge fabrication using the revolutionary",
-      scanner: "Aoralscan Elite",
-      feature1: "Full-arch implant scanning with photogrammetry technology",
-      feature2: "Same-day restorations (4-5 hours)",
-      feature3: "Dental dam isolation for all composite restorations",
-      bookAppt: "Book Appointment",
-      location: "Levidi, Arcadia - Excellence in Digital Dentistry"
+      title: 'Dr. Dimitris Ziaziaris',
+      subtitle: 'Prosthetic & Restorative Dentistry',
+      description: 'Specialized in prosthetic (tooth and implant-supported restorations) and restorative dentistry (fillings). I always work with rubber dam isolation, essential for composite resin restorations.',
+      scanner: 'Aoralscan Elite Intraoral Scanner for Digital Impressions',
+      featureTitle1: 'Photogrammetry',
+      feature1: 'Full-arch implant digital scanning',
+      featureTitle2: 'Speed',
+      feature2: 'Same-day restorations in 4-5 hours',
+      featureTitle3: 'Precision',
+      feature3: 'Rubber dam isolation for all fillings',
+      bookAppt: 'Book Appointment',
+      location: 'Levidi, Arcadia'
+    },
+    booking: {
+      confirmTitle: 'Confirm Appointment',
+      confirmMessage: 'Are you sure you want to book an appointment? We will call you to confirm.',
+      confirmButton: 'Yes, Continue',
+      cancelButton: 'Cancel',
+      formTitle: 'Book Your Appointment',
+      formDescription: 'Fill in your details and we will contact you to confirm your appointment.',
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      phone: 'Phone',
+      email: 'Email (optional)',
+      address: 'Address (optional)',
+      preferredDates: 'Preferred Dates',
+      submit: 'Submit Request',
+      successTitle: 'Successfully Submitted!',
+      successMessage: 'We received your request. We will contact you soon to confirm your appointment.'
     },
     // Services
     services: {

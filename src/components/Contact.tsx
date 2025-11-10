@@ -27,9 +27,13 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">{t.contact.callDesc}</p>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                <Phone className="mr-2 h-4 w-4" />
-                {t.contact.callButton}
+              <Button 
+                size="lg" 
+                onClick={() => window.location.href = 'tel:+302796022303'}
+                className="bg-primary hover:bg-primary/90"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                {t.nav.callNow}
               </Button>
             </CardContent>
           </Card>
@@ -87,15 +91,6 @@ const Contact = () => {
                     <span className="font-medium text-foreground">{t.contact.closed}</span>
                   </div>
                 </div>
-              </div>
-              <div className="text-center md:text-right">
-                <Clock className="h-12 w-12 text-primary mx-auto md:ml-auto mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  {t.contact.emergencyDesc}
-                </p>
-                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                  {t.contact.emergencyButton}
-                </Button>
               </div>
             </div>
           </CardContent>
