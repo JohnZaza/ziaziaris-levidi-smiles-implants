@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Phone, MapPin, Clock, Calendar } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import AppointmentDialog from './AppointmentDialog';
 
 const Contact = () => {
   const { t } = useLanguage();
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
   
   return (
+    <>
+    <AppointmentDialog open={appointmentOpen} onOpenChange={setAppointmentOpen} />
     <section className="py-20 bg-background" id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
@@ -64,7 +68,10 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">{t.contact.scheduleDesc}</p>
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button 
+                onClick={() => setAppointmentOpen(true)}
+                className="bg-primary hover:bg-primary/90"
+              >
                 <Calendar className="mr-2 h-4 w-4" />
                 {t.contact.scheduleButton}
               </Button>
@@ -97,6 +104,7 @@ const Contact = () => {
         </Card>
       </div>
     </section>
+    </>
   );
 };
 
