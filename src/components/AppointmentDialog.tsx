@@ -20,6 +20,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Slider } from '@/components/ui/slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar } from 'lucide-react';
@@ -40,7 +42,11 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     phone: '',
     email: '',
     address: '',
-    preferredDates: ''
+    preferredDates: '',
+    serviceType: '',
+    otherService: '',
+    symptoms: '',
+    urgency: [5]
   });
 
   const handleOpenChange = (isOpen: boolean) => {
@@ -63,12 +69,23 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.phone.trim()) {
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.phone.trim() || !formData.serviceType) {
       toast({
         title: language === 'el' ? 'Σφάλμα' : 'Error',
         description: language === 'el' 
           ? 'Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία' 
           : 'Please fill in all required fields',
+        variant: 'destructive'
+      });
+      return;
+    }
+    
+    if (formData.serviceType === 'other' && !formData.otherService.trim()) {
+      toast({
+        title: language === 'el' ? 'Σφάλμα' : 'Error',
+        description: language === 'el' 
+          ? 'Παρακαλώ περιγράψτε την υπηρεσία που χρειάζεστε' 
+          : 'Please describe the service you need',
         variant: 'destructive'
       });
       return;
@@ -87,7 +104,11 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
       phone: '',
       email: '',
       address: '',
-      preferredDates: ''
+      preferredDates: '',
+      serviceType: '',
+      otherService: '',
+      symptoms: '',
+      urgency: [5]
     });
     
     setShowForm(false);
@@ -189,6 +210,68 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   : 'e.g., Monday-Wednesday, morning hours'}
                 rows={3}
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="serviceType">{t.booking.serviceType} *</Label>
+              <Select 
+                value={formData.serviceType} 
+                onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
+              >
+                <SelectTrigger id="serviceType">
+                  <SelectValue placeholder={language === 'el' ? 'Επιλέξτε υπηρεσία' : 'Select service'} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="cleaning">{t.booking.serviceCleaning}</SelectItem>
+                  <SelectItem value="filling">{t.booking.serviceFilling}</SelectItem>
+                  <SelectItem value="other">{t.booking.serviceOther}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {formData.serviceType === 'other' && (
+              <div className="space-y-2">
+                <Label htmlFor="otherService">{t.booking.otherServiceLabel} *</Label>
+                <Textarea
+                  id="otherService"
+                  value={formData.otherService}
+                  onChange={(e) => setFormData({ ...formData, otherService: e.target.value })}
+                  placeholder={language === 'el' 
+                    ? 'Περιγράψτε τι χρειάζεστε' 
+                    : 'Describe what you need'}
+                  rows={3}
+                />
+              </div>
+            )}
+
+            <div className="space-y-2">
+              <Label htmlFor="symptoms">{t.booking.symptoms}</Label>
+              <Textarea
+                id="symptoms"
+                value={formData.symptoms}
+                onChange={(e) => setFormData({ ...formData, symptoms: e.target.value })}
+                placeholder={language === 'el' 
+                  ? 'Περιγράψτε τα συμπτώματά σας' 
+                  : 'Describe your symptoms'}
+                rows={3}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="urgency">{t.booking.urgency}: {formData.urgency[0]}/10</Label>
+              <Slider
+                id="urgency"
+                min={1}
+                max={10}
+                step={1}
+                value={formData.urgency}
+                onValueChange={(value) => setFormData({ ...formData, urgency: value })}
+                className="w-full"
+              />
+              <div className="flex justify-between text-xs text-muted-foreground">
+                <span>{language === 'el' ? 'Όχι επείγον' : 'Not urgent'}</span>
+                <span>{language === 'el' ? 'Πολύ επείγον' : 'Very urgent'}</span>
+              </div>
             </div>
 
             <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
