@@ -249,9 +249,12 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
             </div>
 
             {/* 🔹 Επιλογή ημέρας & ώρας */}
-            <div className="space-y-3">
-              <Label>{language === 'el' ? 'Διαθέσιμες ημέρες & ώρες' : 'Available Days & Hours'}</Label>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-4 mt-4 mb-4">
+              <Label className="text-base font-medium">
+                {language === 'el' ? 'Διαθέσιμες ημέρες & ώρες' : 'Available Days & Hours'}
+              </Label>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                 {[
                   { day: language === 'el' ? 'Δευτέρα' : 'Monday', hours: '12:00 - 20:30' },
                   { day: language === 'el' ? 'Τρίτη' : 'Tuesday', hours: '08:30 - 17:00' },
@@ -271,14 +274,15 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                           : [...prev.preferredDays, day],
                       }))
                     }
-                    className="text-sm flex flex-col py-3 transition-all duration-200"
+                    className="text-sm flex flex-col py-4 px-3 h-auto transition-all duration-300 rounded-lg shadow-sm hover:shadow-md"
                   >
-                    <span className="font-medium">{day}</span>
-                    <span className="text-xs text-muted-foreground">{hours}</span>
+                    <span className="font-semibold text-foreground">{day}</span>
+                    <span className="text-xs text-muted-foreground mt-1">{hours}</span>
                   </Button>
                 ))}
               </div>
             </div>
+
 
             {/* 🔹 Επιλογή ημερών & ώρας */}
             {/* <div className="space-y-3">
