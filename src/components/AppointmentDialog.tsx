@@ -52,8 +52,8 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
 
   // 🔹 Ετικέτες ημερών ανάλογα με τη γλώσσα
   const days = language === 'el'
-    ? ['Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ', 'Κυρ']
-    : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    ? ['Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ']
+    : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
   // 🔹 Ετικέτες ώρας ανάλογα με τη γλώσσα
   const times = language === 'el'
@@ -163,30 +163,6 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     }
   };
 
-  // const handleConfirmSubmit = () => {
-  //   toast({
-  //     title: t.booking.successTitle,
-  //     description: t.booking.successMessage,
-  //   });
-
-  //   setFormData({
-  //     firstName: '',
-  //     lastName: '',
-  //     phone: '',
-  //     email: '',
-  //     address: '',
-  //     preferredDays: [],
-  //     preferredTime: '',
-  //     serviceType: '',
-  //     otherService: '',
-  //     symptoms: '',
-  //     urgency: [5],
-  //   });
-
-  //   setShowConfirm(false);
-  //   onOpenChange(false);
-  // };
-
   return (
     <>
       {/* 🔹 Confirmation after submit */}
@@ -272,8 +248,40 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               />
             </div>
 
-            {/* 🔹 Επιλογή ημερών & ώρας */}
+            {/* 🔹 Επιλογή ημέρας & ώρας */}
             <div className="space-y-3">
+              <Label>{language === 'el' ? 'Διαθέσιμες ημέρες & ώρες' : 'Available Days & Hours'}</Label>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { day: language === 'el' ? 'Δευτέρα' : 'Monday', hours: '12:00 - 20:30' },
+                  { day: language === 'el' ? 'Τρίτη' : 'Tuesday', hours: '08:30 - 17:00' },
+                  { day: language === 'el' ? 'Τετάρτη' : 'Wednesday', hours: '08:30 - 17:00' },
+                  { day: language === 'el' ? 'Πέμπτη' : 'Thursday', hours: '12:00 - 20:30' },
+                  { day: language === 'el' ? 'Παρασκευή' : 'Friday', hours: '08:30 - 17:00' },
+                ].map(({ day, hours }) => (
+                  <Button
+                    key={day}
+                    type="button"
+                    variant={formData.preferredDays.includes(day) ? 'default' : 'outline'}
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        preferredDays: prev.preferredDays.includes(day)
+                          ? prev.preferredDays.filter((d) => d !== day)
+                          : [...prev.preferredDays, day],
+                      }))
+                    }
+                    className="text-sm flex flex-col py-3 transition-all duration-200"
+                  >
+                    <span className="font-medium">{day}</span>
+                    <span className="text-xs text-muted-foreground">{hours}</span>
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* 🔹 Επιλογή ημερών & ώρας */}
+            {/* <div className="space-y-3">
               <Label>{language === 'el' ? 'Προτιμώμενες ημέρες' : 'Preferred Days'}</Label>
               <div className="grid grid-cols-3 gap-2">
                 {days.map((day) => (
@@ -303,7 +311,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   </Button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Είδος υπηρεσίας */}
             <div className="space-y-2">
