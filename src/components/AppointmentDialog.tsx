@@ -261,61 +261,32 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   { day: language === 'el' ? 'Τετάρτη' : 'Wednesday', hours: '08:30 - 17:00' },
                   { day: language === 'el' ? 'Πέμπτη' : 'Thursday', hours: '12:00 - 20:30' },
                   { day: language === 'el' ? 'Παρασκευή' : 'Friday', hours: '08:30 - 17:00' },
-                ].map(({ day, hours }) => (
-                  <Button
-                    key={day}
-                    type="button"
-                    variant={formData.preferredDays.includes(day) ? 'default' : 'outline'}
-                    onClick={() =>
-                      setFormData((prev) => ({
-                        ...prev,
-                        preferredDays: prev.preferredDays.includes(day)
-                          ? prev.preferredDays.filter((d) => d !== day)
-                          : [...prev.preferredDays, day],
-                      }))
-                    }
-                    className="text-sm flex flex-col py-4 px-3 h-auto transition-all duration-300 rounded-lg shadow-sm hover:shadow-md"
-                  >
-                    <span className="font-semibold text-foreground">{day}</span>
-                    <span className="text-xs text-muted-foreground mt-1">{hours}</span>
-                  </Button>
-                ))}
+                ].map(({ day, hours }) => {
+                  const label = `${day} (${hours})`;
+                  const isSelected = formData.preferredDays.includes(label);
+
+                  return (
+                    <Button
+                      key={day}
+                      type="button"
+                      variant={isSelected ? 'default' : 'outline'}
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          preferredDays: isSelected
+                            ? prev.preferredDays.filter((d) => d !== label)
+                            : [...prev.preferredDays, label],
+                        }))
+                      }
+                      className="text-sm flex flex-col py-4 px-3 h-auto transition-all duration-300 rounded-lg shadow-sm hover:shadow-md"
+                    >
+                      <span className="font-semibold text-foreground">{day}</span>
+                      <span className="text-xs text-muted-foreground mt-1">{hours}</span>
+                    </Button>
+                  );
+                })}
               </div>
             </div>
-
-
-            {/* 🔹 Επιλογή ημερών & ώρας */}
-            {/* <div className="space-y-3">
-              <Label>{language === 'el' ? 'Προτιμώμενες ημέρες' : 'Preferred Days'}</Label>
-              <div className="grid grid-cols-3 gap-2">
-                {days.map((day) => (
-                  <Button
-                    key={day}
-                    type="button"
-                    variant={formData.preferredDays.includes(day) ? 'default' : 'outline'}
-                    onClick={() => handleToggleDay(day)}
-                    className="text-sm transition-all duration-200"
-                  >
-                    {day}
-                  </Button>
-                ))}
-              </div>
-
-              <Label>{language === 'el' ? 'Προτιμώμενη ώρα' : 'Preferred Time'}</Label>
-              <div className="flex gap-3">
-                {times.map((time) => (
-                  <Button
-                    key={time}
-                    type="button"
-                    variant={formData.preferredTime === time ? 'default' : 'outline'}
-                    onClick={() => setFormData({ ...formData, preferredTime: time })}
-                    className="w-1/2"
-                  >
-                    {time}
-                  </Button>
-                ))}
-              </div>
-            </div> */}
 
             {/* Είδος υπηρεσίας */}
             <div className="space-y-2">

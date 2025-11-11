@@ -17,7 +17,7 @@ const Index = () => {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-6 text-center">
           <p className="text-gray-400">
-            © 2024 Dr. Dimitris Ziaziaris - Dental Practice. All rights reserved.
+            © 2024 Dr. Dimitris P. Ziaziaris - Dental Practice. All rights reserved.
           </p>
           <p className="text-gray-400 mt-2">
             Levidi, Arcadia - Professional Dental Care
