@@ -9,7 +9,7 @@ export const translations = {
     },
     // Hero
     hero: {
-      title: 'Δρ. Δημήτρης Ζιαζιάρης',
+      title: 'Δημήτρης Π. Ζιαζιάρης',
       subtitle: 'Προσθετική & Αποκαταστατική Οδοντιατρική',
       description: 'Εξειδικευμένος σε προσθετική (οδοντικές & εμφυτευματικές αποκαταστάσεις) και αποκαταστατική οδοντιατρική (εμφράξεις). Χρησιμοποιώ πάντα απομόνωση με rubber dam, απαραίτητη για αποκαταστάσεις με σύνθετη ρητίνη.',
       scanner: 'Aoralscan Elite Intraoral Scanner για Ψηφιακές Αποτυπώσεις',
@@ -83,8 +83,8 @@ export const translations = {
     },
     // About
     about: {
-      heading: "Σχετικά με τον Δρ. Δημήτρη Ζιαζιάρη",
-      intro1: "Καλώς ήρθατε στο προηγμένο ψηφιακό οδοντιατρείο μας στο Λεβίδι, Αρκαδία. Ο Δρ. Δημήτρης Ζιαζιάρης ειδικεύεται στην προσθετική οδοντιατρική (τόσο σε αποκαταστάσεις στηριζόμενες σε δόντια όσο και σε εμφυτεύματα) και στην αποκαταστατική οδοντιατρική με έμφαση στην ακρίβεια και τη μακροβιότητα.",
+      heading: "Σχετικά με τον Δημήτρη Π. Ζιαζιάρη",
+      intro1: "Καλώς ήρθατε στο προηγμένο ψηφιακό οδοντιατρείο μας στο Λεβίδι, Αρκαδία. Ο Δημήτρης Π. Ζιαζιάρης ειδικεύεται στην προσθετική οδοντιατρική (τόσο σε αποκαταστάσεις στηριζόμενες σε δόντια όσο και σε εμφυτεύματα) και στην αποκαταστατική οδοντιατρική με έμφαση στην ακρίβεια και τη μακροβιότητα.",
       intro2: "Χρησιμοποιούμε υπερσύγχρονη τεχνολογία συμπεριλαμβανομένου του Aoralscan Elite - του μόνου ενδοστοματικού σαρωτή με πλήρως ενσωματωμένη φωτογραμμετρία για εξαιρετική ακρίβεια σε περιπτώσεις εμφυτευμάτων. Η ψηφιακή μας ροή εργασίας την ίδια μέρα μπορεί να παραδώσει μια πλήρη γέφυρα σε μόλις 4-5 ώρες.",
       intro3: "Όλες οι σύνθετες αποκαταστάσεις πραγματοποιούνται με απομόνωση οδοντικού απομονωτήρα για βέλτιστα αποτελέσματα, και εργαζόμαστε με μεγεθυντικούς φακούς για αυξημένη ακρίβεια σε κάθε διαδικασία. Για πολύπλοκες περιπτώσεις, συνεργαζόμαστε με στρατιωτικό στοματοχειρουργό.",
       feature1Title: "Ψηφιακή Αριστεία",
@@ -132,7 +132,7 @@ export const translations = {
     },
     // Hero
     hero: {
-      title: 'Dr. Dimitris Ziaziaris',
+      title: 'Dimitris P. Ziaziaris',
       subtitle: 'Prosthetic & Restorative Dentistry',
       description: 'Specialized in prosthetic (tooth and implant-supported restorations) and restorative dentistry (fillings). I always work with rubber dam isolation, essential for composite resin restorations.',
       scanner: 'Aoralscan Elite Intraoral Scanner for Digital Impressions',
@@ -206,8 +206,8 @@ export const translations = {
     },
     // About
     about: {
-      heading: "About Dr. Dimitris Ziaziaris",
-      intro1: "Welcome to our advanced digital dental practice in Levidi, Arcadia. Dr. Dimitris Ziaziaris specializes in prosthetic dentistry (both tooth and implant-supported restorations) and restorative dentistry with a focus on precision and longevity.",
+      heading: "About Dimitris P. Ziaziaris",
+      intro1: "Welcome to our advanced digital dental practice in Levidi, Arcadia. Dimitris P. Ziaziaris specializes in prosthetic dentistry (both tooth and implant-supported restorations) and restorative dentistry with a focus on precision and longevity.",
       intro2: "We utilize cutting-edge technology including the Aoralscan Elite - the only intraoral scanner with fully integrated photogrammetry for exceptional accuracy in implant cases. Our same-day digital workflow can deliver a complete bridge in just 4-5 hours.",
       intro3: "All composite restorations are performed with dental dam isolation for optimal results, and we work with magnification loupes for enhanced precision in every procedure. For complex cases, we collaborate with a military oral and maxillofacial surgeon.",
       feature1Title: "Digital Excellence",
@@ -246,3 +246,4 @@ export const translations = {
     }
   }
 };
+

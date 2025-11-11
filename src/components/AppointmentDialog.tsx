@@ -35,119 +35,193 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [showConfirm, setShowConfirm] = useState(false);
-  const [showForm, setShowForm] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     phone: '',
     email: '',
     address: '',
-    preferredDates: '',
+    preferredDays: [] as string[],
+    preferredTime: '',
     serviceType: '',
     otherService: '',
     symptoms: '',
-    urgency: [5]
+    urgency: [5],
   });
 
-  const handleOpenChange = (isOpen: boolean) => {
-    if (isOpen) {
-      setShowConfirm(true);
-    } else {
-      setShowConfirm(false);
-      setShowForm(false);
-      onOpenChange(false);
-    }
-  };
+  // 🔹 Ετικέτες ημερών ανάλογα με τη γλώσσα
+  const days = language === 'el'
+    ? ['Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ', 'Κυρ']
+    : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-  const handleConfirm = () => {
-    setShowConfirm(false);
-    setShowForm(true);
-    onOpenChange(true);
+  // 🔹 Ετικέτες ώρας ανάλογα με τη γλώσσα
+  const times = language === 'el'
+    ? ['Πρωί', 'Απόγευμα']
+    : ['Morning', 'Afternoon'];
+
+  const handleToggleDay = (day: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      preferredDays: prev.preferredDays.includes(day)
+        ? prev.preferredDays.filter((d) => d !== day)
+        : [...prev.preferredDays, day],
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
+
     if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.phone.trim() || !formData.serviceType) {
       toast({
         title: language === 'el' ? 'Σφάλμα' : 'Error',
-        description: language === 'el' 
-          ? 'Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία' 
-          : 'Please fill in all required fields',
-        variant: 'destructive'
+        description:
+          language === 'el'
+            ? 'Παρακαλώ συμπληρώστε όλα τα απαιτούμενα πεδία'
+            : 'Please fill in all required fields',
+        variant: 'destructive',
       });
       return;
     }
-    
+
     if (formData.serviceType === 'other' && !formData.otherService.trim()) {
       toast({
         title: language === 'el' ? 'Σφάλμα' : 'Error',
-        description: language === 'el' 
-          ? 'Παρακαλώ περιγράψτε την υπηρεσία που χρειάζεστε' 
-          : 'Please describe the service you need',
-        variant: 'destructive'
+        description:
+          language === 'el'
+            ? 'Παρακαλώ περιγράψτε την υπηρεσία που χρειάζεστε'
+            : 'Please describe the service you need',
+        variant: 'destructive',
       });
       return;
     }
 
-    // Show success message
-    toast({
-      title: t.booking.successTitle,
-      description: t.booking.successMessage,
-    });
-
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      address: '',
-      preferredDates: '',
-      serviceType: '',
-      otherService: '',
-      symptoms: '',
-      urgency: [5]
-    });
-    
-    setShowForm(false);
-    onOpenChange(false);
+    // Εμφάνιση επιβεβαίωσης
+    setShowConfirm(true);
   };
+
+  const handleConfirmSubmit = async () => {
+    try {
+      // 🔹 Αποστολή δεδομένων στο Formspree
+      const response = await fetch("https://formspree.io/f/movyqwlv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phone: formData.phone,
+          email: formData.email,
+          address: formData.address,
+          preferredDays: formData.preferredDays.join(', '),
+          preferredTime: formData.preferredTime,
+          serviceType:
+            formData.serviceType === 'other'
+              ? formData.otherService
+              : formData.serviceType,
+          symptoms: formData.symptoms,
+          urgency: formData.urgency[0],
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: t.booking.successTitle,
+          description: t.booking.successMessage,
+        });
+
+        // Reset
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          address: '',
+          preferredDays: [],
+          preferredTime: '',
+          serviceType: '',
+          otherService: '',
+          symptoms: '',
+          urgency: [5],
+        });
+
+        setShowConfirm(false);
+        onOpenChange(false);
+      } else {
+        throw new Error('Formspree error');
+      }
+    } catch (error) {
+      toast({
+        title: language === 'el' ? 'Σφάλμα' : 'Error',
+        description:
+          language === 'el'
+            ? 'Παρουσιάστηκε πρόβλημα κατά την αποστολή. Προσπαθήστε ξανά.'
+            : 'There was an issue submitting your form. Please try again.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  // const handleConfirmSubmit = () => {
+  //   toast({
+  //     title: t.booking.successTitle,
+  //     description: t.booking.successMessage,
+  //   });
+
+  //   setFormData({
+  //     firstName: '',
+  //     lastName: '',
+  //     phone: '',
+  //     email: '',
+  //     address: '',
+  //     preferredDays: [],
+  //     preferredTime: '',
+  //     serviceType: '',
+  //     otherService: '',
+  //     symptoms: '',
+  //     urgency: [5],
+  //   });
+
+  //   setShowConfirm(false);
+  //   onOpenChange(false);
+  // };
 
   return (
     <>
+      {/* 🔹 Confirmation after submit */}
       <AlertDialog open={showConfirm} onOpenChange={setShowConfirm}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>{t.booking.confirmTitle}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t.booking.confirmMessage}
-            </AlertDialogDescription>
+            <AlertDialogDescription>{t.booking.confirmMessage}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => handleOpenChange(false)}>
+            <AlertDialogCancel onClick={() => setShowConfirm(false)}>
               {t.booking.cancelButton}
             </AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirm}>
+            <AlertDialogAction onClick={handleConfirmSubmit}>
               {t.booking.confirmButton}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
-      <Dialog open={showForm} onOpenChange={handleOpenChange}>
-        <DialogContent className="sm:max-w-[500px]">
+      {/* 🔹 Appointment Form */}
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent
+          className="sm:max-w-[500px] max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent p-6 my-16"
+        >
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
               {t.booking.formTitle}
             </DialogTitle>
-            <DialogDescription>
-              {t.booking.formDescription}
-            </DialogDescription>
+            <DialogDescription>{t.booking.formDescription}</DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+
+          <form onSubmit={handleSubmit} className="space-y-5 mt-4 pb-6">
+            {/* Ονοματεπώνυμο */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName">{t.booking.firstName} *</Label>
@@ -155,7 +229,6 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   id="firstName"
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  required
                 />
               </div>
               <div className="space-y-2">
@@ -164,11 +237,11 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   id="lastName"
                   value={formData.lastName}
                   onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  required
                 />
               </div>
             </div>
-            
+
+            {/* Τηλέφωνο & Email */}
             <div className="space-y-2">
               <Label htmlFor="phone">{t.booking.phone} *</Label>
               <Input
@@ -176,7 +249,6 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                required
               />
             </div>
 
@@ -190,6 +262,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               />
             </div>
 
+            {/* Διεύθυνση */}
             <div className="space-y-2">
               <Label htmlFor="address">{t.booking.address}</Label>
               <Input
@@ -199,27 +272,50 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="preferredDates">{t.booking.preferredDates}</Label>
-              <Textarea
-                id="preferredDates"
-                value={formData.preferredDates}
-                onChange={(e) => setFormData({ ...formData, preferredDates: e.target.value })}
-                placeholder={language === 'el' 
-                  ? 'π.χ. Δευτέρα-Τετάρτη, πρωινές ώρες' 
-                  : 'e.g., Monday-Wednesday, morning hours'}
-                rows={3}
-              />
+            {/* 🔹 Επιλογή ημερών & ώρας */}
+            <div className="space-y-3">
+              <Label>{language === 'el' ? 'Προτιμώμενες ημέρες' : 'Preferred Days'}</Label>
+              <div className="grid grid-cols-3 gap-2">
+                {days.map((day) => (
+                  <Button
+                    key={day}
+                    type="button"
+                    variant={formData.preferredDays.includes(day) ? 'default' : 'outline'}
+                    onClick={() => handleToggleDay(day)}
+                    className="text-sm transition-all duration-200"
+                  >
+                    {day}
+                  </Button>
+                ))}
+              </div>
+
+              <Label>{language === 'el' ? 'Προτιμώμενη ώρα' : 'Preferred Time'}</Label>
+              <div className="flex gap-3">
+                {times.map((time) => (
+                  <Button
+                    key={time}
+                    type="button"
+                    variant={formData.preferredTime === time ? 'default' : 'outline'}
+                    onClick={() => setFormData({ ...formData, preferredTime: time })}
+                    className="w-1/2"
+                  >
+                    {time}
+                  </Button>
+                ))}
+              </div>
             </div>
 
+            {/* Είδος υπηρεσίας */}
             <div className="space-y-2">
               <Label htmlFor="serviceType">{t.booking.serviceType} *</Label>
-              <Select 
-                value={formData.serviceType} 
+              <Select
+                value={formData.serviceType}
                 onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
               >
                 <SelectTrigger id="serviceType">
-                  <SelectValue placeholder={language === 'el' ? 'Επιλέξτε υπηρεσία' : 'Select service'} />
+                  <SelectValue
+                    placeholder={language === 'el' ? 'Επιλέξτε υπηρεσία' : 'Select service'}
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="cleaning">{t.booking.serviceCleaning}</SelectItem>
@@ -236,29 +332,31 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                   id="otherService"
                   value={formData.otherService}
                   onChange={(e) => setFormData({ ...formData, otherService: e.target.value })}
-                  placeholder={language === 'el' 
-                    ? 'Περιγράψτε τι χρειάζεστε' 
-                    : 'Describe what you need'}
-                  rows={3}
+                  placeholder={
+                    language === 'el' ? 'Περιγράψτε τι χρειάζεστε' : 'Describe what you need'
+                  }
                 />
               </div>
             )}
 
+            {/* Συμπτώματα */}
             <div className="space-y-2">
               <Label htmlFor="symptoms">{t.booking.symptoms}</Label>
               <Textarea
                 id="symptoms"
                 value={formData.symptoms}
                 onChange={(e) => setFormData({ ...formData, symptoms: e.target.value })}
-                placeholder={language === 'el' 
-                  ? 'Περιγράψτε τα συμπτώματά σας' 
-                  : 'Describe your symptoms'}
-                rows={3}
+                placeholder={
+                  language === 'el' ? 'Περιγράψτε τα συμπτώματά σας' : 'Describe your symptoms'
+                }
               />
             </div>
 
+            {/* Επείγον */}
             <div className="space-y-2">
-              <Label htmlFor="urgency">{t.booking.urgency}: {formData.urgency[0]}/10</Label>
+              <Label htmlFor="urgency">
+                {t.booking.urgency}: {formData.urgency[0]}/10
+              </Label>
               <Slider
                 id="urgency"
                 min={1}
@@ -266,7 +364,6 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
                 step={1}
                 value={formData.urgency}
                 onValueChange={(value) => setFormData({ ...formData, urgency: value })}
-                className="w-full"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>{language === 'el' ? 'Όχι επείγον' : 'Not urgent'}</span>
@@ -274,7 +371,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 mt-6">
               {t.booking.submit}
             </Button>
           </form>
