@@ -1,6 +1,15 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Smile, Zap, Crown, FileText, Syringe, Scan, Stethoscope, Monitor } from 'lucide-react';
+import {
+  FaTooth,
+  FaTeeth,
+  FaMicroscope,
+  FaHandHoldingMedical,
+  FaSyringe,
+  FaCrown,
+  FaLaptopMedical,
+  FaClinicMedical
+} from 'react-icons/fa';
 import { useLanguage } from '@/contexts/LanguageContext';
 import dimi2 from '@/assets/dimi2.jpg';
 const Services = () => {
@@ -8,56 +17,56 @@ const Services = () => {
 
   const services = [
     {
-      icon: <Stethoscope className="h-8 w-8 text-primary" />,
+      icon: <FaTooth className="h-8 w-8 text-primary" />,
       title: t.services.implants.title,
       description: t.services.implants.desc,
       details: t.services.implants.details,
       featured: true
     },
     {
-      icon: <Zap className="h-8 w-8 text-primary" />,
+      icon: <FaTeeth className="h-8 w-8 text-primary" />,
       title: t.services.prosthetic.title,
       description: t.services.prosthetic.desc,
       details: t.services.prosthetic.details,
       featured: true
     },
     {
-      icon: <Monitor className="h-8 w-8 text-primary" />,
+      icon: <FaMicroscope className="h-8 w-8 text-primary" />,
       title: t.services.lab.title,
       description: t.services.lab.desc,
       details: t.services.lab.details,
       featured: false
     },
     {
-      icon: <Smile className="h-8 w-8 text-primary" />,
+      icon: <FaHandHoldingMedical className="h-8 w-8 text-primary" />,
       title: t.services.restorative.title,
       description: t.services.restorative.desc,
       details: t.services.restorative.details,
       featured: false
     },
     {
-      icon: <Syringe className="h-8 w-8 text-primary" />,
+      icon: <FaSyringe className="h-8 w-8 text-primary" />,
       title: t.services.endodontic.title,
       description: t.services.endodontic.desc,
       details: t.services.endodontic.details,
       featured: false
     },
     {
-      icon: <Crown className="h-8 w-8 text-primary" />,
+      icon: <FaCrown className="h-8 w-8 text-primary" />,
       title: t.services.crownLengthening.title,
       description: t.services.crownLengthening.desc,
       details: t.services.crownLengthening.details,
       featured: false
     },
     {
-      icon: <Scan className="h-8 w-8 text-primary" />,
+      icon: <FaLaptopMedical className="h-8 w-8 text-primary" />,
       title: t.services.digitalWorkflow.title,
       description: t.services.digitalWorkflow.desc,
       details: t.services.digitalWorkflow.details,
       featured: false
     },
     {
-      icon: <FileText className="h-8 w-8 text-primary" />,
+      icon: <FaClinicMedical className="h-8 w-8 text-primary" />,
       title: t.services.practice.title,
       description: t.services.practice.desc,
       details: t.services.practice.details,
