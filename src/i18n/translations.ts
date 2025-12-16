@@ -308,11 +308,21 @@ export const translations = {
       heading: "Οι Εξειδικευμένες Υπηρεσίες Μας",
       subheading:
         "Σύγχρονη προσθετική και αποκαταστατική οδοντιατρική με προηγμένες ψηφιακές τεχνολογίες",
+      implants: {
+        title: "Τοποθέτηση Οδοντικών Εμφυτευμάτων",
+        desc: "Συνεργασία με γναθοχειρουργό",
+        details: "Η χειρουργική διαδικασία της τοποθέτησης των εμφυτευμάτων, η εξαγωγή έγκλειστων φρονιμιτών καθώς και άλλες χειρουργικές επεμβάσεις του στόματος, πραγματοποιούνται στο χώρο μας από τον συνεργάτη μας Μακρή Νικόλαο, Γναθοχειρουργό - Στρατιωτικό ιατρό, Επιμελητή Στοματικής και Γναθοπροσωπικής Χειρουργικής κλινικής 251 Γενικού Νοσοκομείου Αεροπορίας."
+      },
       prosthetic: {
         title: "Προσθετική Οδοντιατρική",
         desc: "Αποκαταστάσεις στηριζόμενες σε δόντια και εμφυτεύματα",
         details:
           "Ολοκληρωμένες προσθετικές λύσεις συμπεριλαμβανομένων οδοντικών εμφυτευμάτων, όψεων σύνθετης ρητίνης και πορσελάνης, επενθέτων, στεφανών, γεφυρών και αποκαταστάσεων πλήρους τόξου. Χρησιμοποιώντας το Aoralscan Elite με τεχνολογία φωτογραμμετρίας, επιτυγχάνουμε εξαιρετική ακρίβεια για αποκαταστάσεις στηριζόμενες σε εμφυτεύματα."
+      },
+      lab: {
+        title: "Σύγχρονο Ψηφιακό Οδοντοτεχνικό Εργαστήριο",
+        desc: "Προηγμένα συστήματα σάρωσης και CAD/CAM",
+        details: "Συνεργαζόμαστε με ένα σύγχρονο, πλήρως ψηφιακό οδοντοτεχνικό εργαστήριο που αξιοποιεί προηγμένα συστήματα σάρωσης και CAD/CAM τεχνολογίας. Η υψηλή ακρίβεια, η συνέπεια στα αποτελέσματα και η άριστη ποιότητα των υλικών του, συμβάλλουν καθοριστικά στη δημιουργία αποκαταστάσεων με άψογη εφαρμογή και αισθητική. Μέσα από αυτή τη συνεργασία εξασφαλίζουμε το καλύτερο δυνατό αποτέλεσμα για τους ασθενείς μας."
       },
       restorative: {
         title: "Αποκαταστατική Οδοντιατρική",
@@ -322,7 +332,7 @@ export const translations = {
       },
       endodontic: {
         title: "Ενδοδοντική Θεραπεία",
-        desc: "Σύγχρονες,ανώδυνες,γρήγορες και ασφαλείς θεραπείες",
+        desc: "Σύγχρονες, ανώδυνες, γρήγορες και ασφαλείς θεραπείες",
         details:
           "Οι ενδοδοντικές θεραπείες (απονευρώσεις) πραγματοποιούνται σε μία έως δύο συνεδρίες στις περισσότερες περιπτώσεις. Για δύσκολα περιστατικά συνεργαζόμαστε με ειδικούς ενδοδοντολόγους που εξασφαλίζουν την καλύτερη δυνατή θεραπεία σε όλες τις περιπτώσεις."
       },
@@ -330,7 +340,7 @@ export const translations = {
         title: "Επιμήκυνση Κλινικής Μύλης",
         desc: "Χειρουργικές διαδικασίες με τη χρήση διαθερμίας",
         details:
-          "Η χειρουργική επιμήκυνση μύλης, πραγματοποιείται χρησιμοποιώντας διαθερμία. Με αυτήν την τεχνική κυριολεκτικά σώζονται σπασμένα δόντια που σε διαφορετική περίπτωση θα ήταν για εξαγωγή"
+          "Η χειρουργική επιμήκυνση μύλης, πραγματοποιείται χρησιμοποιώντας διαθερμία. Με αυτήν την τεχνική κυριολεκτικά σώζονται σπασμένα δόντια που σε διαφορετική περίπτωση θα ήταν για εξαγωγή."
       },
       digitalWorkflow: {
         title: "Ψηφιακή Ροή Εργασίας",
@@ -350,7 +360,7 @@ export const translations = {
       intro1:
         "Καλώς ήρθατε στο προηγμένο ψηφιακό οδοντιατρείο μας στο Λεβίδι Αρκαδίας. Ο Δημήτρης Π. Ζιάζιαρης ειδικεύεται στην προσθετική οδοντιατρική — τόσο σε αποκαταστάσεις στηριζόμενες σε δόντια όσο και σε εμφυτεύματα — καθώς και στην αποκαταστατική οδοντιατρική, με έμφαση στην ακρίβεια και τη μακροβιότητα.",
       intro2:
-        "Αποφοίτησε από το 4ο Λύκειο Τρίπολης το 2010 και στη συνέχεια σπούδασε Οδοντιατρική στο Πανεπιστήμιο της Τιμισοάρας στη Ρουμανία, σε εξαετές πρόγραμμα σπουδών, από το οποίο αποφοίτησε το 2016. Από το 2017, μετά τη στρατιωτική του θητεία ως οδοντίατρος, διατηρεί το οδοντιατρείο του στο Λεβίδι, παρέχοντας υψηλού επιπέδου οδοντιατρική φροντίδα με σύγχρονες μεθόδους και τεχνολογίες.",
+        "Αποφοίτησε από το 4ο Λύκειο Τρίπολης το 2010 και στη συνέχεια σπούδασε Οδοντιατρική στο Πανεπιστήμιο της Τιμισοάρα στη Ρουμανία, σε εξαετές πρόγραμμα σπουδών, από το οποίο αποφοίτησε το 2016. Από το 2017, μετά τη στρατιωτική του θητεία ως οδοντίατρος, διατηρεί το οδοντιατρείο του στο Λεβίδι, παρέχοντας υψηλού επιπέδου οδοντιατρική φροντίδα με σύγχρονες μεθόδους και τεχνολογίες.",
       intro3:
         "Παράλληλα, συμμετέχει συνεχώς σε εκπαιδευτικά προγράμματα και σεμινάρια με επίκεντρο την προσθετική και την αποκαταστατική οδοντιατρική, εξελίσσοντας διαρκώς τις γνώσεις και την κλινική του εμπειρία.",
       feature1Title: "Ψηφιακή Αριστεία",
@@ -451,11 +461,21 @@ export const translations = {
       heading: "Our Specialized Services",
       subheading:
         "Advanced prosthetic and restorative dentistry using modern digital technologies",
+      implants: {
+        title: "Dental Implant Placement",
+        desc: "Collaboration with oral surgeon",
+        details: "The surgical procedure of implant placement, the extraction of impacted wisdom teeth, and other oral surgical procedures are performed in our practice by our partner Makris Nikolaos, Oral and Maxillofacial Surgeon - Military Doctor, Attending Surgeon at the Oral and Maxillofacial Surgery Clinic of the 251 General Air Force Hospital."
+      },
       prosthetic: {
         title: "Prosthetic Dentistry",
         desc: "Tooth- and implant-supported restorations",
         details:
           "Comprehensive prosthetic solutions including dental implants, composite and porcelain veneers, inlays/onlays, crowns, bridges and full-arch restorations. Using the Aoralscan Elite with photogrammetry technology, we achieve exceptional accuracy for implant-supported restorations."
+      },
+      lab: {
+        title: "Modern Digital Dental Lab",
+        desc: "Advanced scanning and CAD/CAM systems",
+        details: "We collaborate with a modern, fully digital dental laboratory that utilizes advanced scanning and CAD/CAM technology. The high precision, consistency in results, and excellent material quality contribute significantly to creating restorations with flawless fit and aesthetics. Through this collaboration, we ensure the best possible result for our patients."
       },
       restorative: {
         title: "Restorative Dentistry",

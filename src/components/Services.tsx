@@ -1,12 +1,19 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Smile, Zap, Crown, FileText, Syringe, Scan } from 'lucide-react';
+import { Smile, Zap, Crown, FileText, Syringe, Scan, Stethoscope, Monitor } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import dimi2 from '@/assets/dimi2.jpg';
 const Services = () => {
   const { t } = useLanguage();
 
   const services = [
+    {
+      icon: <Stethoscope className="h-8 w-8 text-primary" />,
+      title: t.services.implants.title,
+      description: t.services.implants.desc,
+      details: t.services.implants.details,
+      featured: true
+    },
     {
       icon: <Zap className="h-8 w-8 text-primary" />,
       title: t.services.prosthetic.title,
@@ -15,11 +22,18 @@ const Services = () => {
       featured: true
     },
     {
+      icon: <Monitor className="h-8 w-8 text-primary" />,
+      title: t.services.lab.title,
+      description: t.services.lab.desc,
+      details: t.services.lab.details,
+      featured: false
+    },
+    {
       icon: <Smile className="h-8 w-8 text-primary" />,
       title: t.services.restorative.title,
       description: t.services.restorative.desc,
       details: t.services.restorative.details,
-      featured: true
+      featured: false
     },
     {
       icon: <Syringe className="h-8 w-8 text-primary" />,
