@@ -160,14 +160,14 @@ const Hero = () => {
               {t.hero.title}
             </h1>
 
-            {/* 🔹 Νέα γραμμή: Οδοντίατρος */}
+            {/* 🔹 Νέα γραμμή: Οδοντίατρος - Sourced from translations */}
             <p className="text-xl md:text-2xl text-muted-foreground font-light mb-6 tracking-wide animate-fadeIn delay-200">
-              {language === 'el' ? 'Οδοντίατρος' : 'Dentist'}
+              {t.hero.subtitle}
             </p>
 
             <p className="text-lg md:text-xl lg:text-2xl text-primary font-semibold mb-4 flex items-center justify-center gap-2 drop-shadow">
               <Sparkles className="h-5 w-5 md:h-6 md:w-6" />
-              {t.hero.subtitle}
+              {t.hero.subtitle2}
             </p>
 
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl leading-relaxed drop-shadow-sm">

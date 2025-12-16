@@ -41,7 +41,11 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     lastName: '',
     phone: '',
     email: '',
-    address: '',
+    // address: '', // removed single field
+    city: '',
+    prefecture: '',
+    street: '',
+    number: '',
     preferredDays: [] as string[],
     preferredTime: '',
     serviceType: '',
@@ -107,15 +111,16 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
           phone: formData.phone,
-          email: formData.email,
-          address: formData.address,
+          ...(formData.email ? { email: formData.email } : {}),
+          // Combine address fields into one string for simplicity in email
+          address: `${formData.street} ${formData.number}, ${formData.city}, ${formData.prefecture}`.trim().replace(/^, | ,/g, ''),
           preferredDays: formData.preferredDays.join(', '),
-          preferredTime: formData.preferredTime,
           serviceType:
             formData.serviceType === 'other'
               ? formData.otherService
@@ -137,7 +142,10 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
           lastName: '',
           phone: '',
           email: '',
-          address: '',
+          city: '',
+          prefecture: '',
+          street: '',
+          number: '',
           preferredDays: [],
           preferredTime: '',
           serviceType: '',
@@ -238,14 +246,45 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               />
             </div>
 
-            {/* Διεύθυνση */}
+            {/* Διεύθυνση (Expanded: City, Prefecture, Street, Number) - Optional */}
             <div className="space-y-2">
-              <Label htmlFor="address">{t.booking.address}</Label>
-              <Input
-                id="address"
-                value={formData.address}
-                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              />
+              <Label className="font-semibold text-primary">{t.booking.address} (Optional)</Label>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="city" className="text-xs text-muted-foreground">{t.booking.city}</Label>
+                  <Input
+                    id="city"
+                    value={formData.city}
+                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="prefecture" className="text-xs text-muted-foreground">{t.booking.prefecture}</Label>
+                  <Input
+                    id="prefecture"
+                    value={formData.prefecture}
+                    onChange={(e) => setFormData({ ...formData, prefecture: e.target.value })}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="street" className="text-xs text-muted-foreground">{t.booking.street}</Label>
+                  <Input
+                    id="street"
+                    value={formData.street}
+                    onChange={(e) => setFormData({ ...formData, street: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="number" className="text-xs text-muted-foreground">{t.booking.number}</Label>
+                  <Input
+                    id="number"
+                    value={formData.number}
+                    onChange={(e) => setFormData({ ...formData, number: e.target.value })}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* 🔹 Επιλογή ημέρας & ώρας */}

@@ -260,9 +260,10 @@ export const translations = {
     // Hero
     hero: {
       title: 'Δημήτρης Π. Ζιάζιαρης',
-      subtitle: 'Προσθετική & Αποκαταστατική Οδοντιατρική',
+      subtitle: 'Χειρουργός Οδοντίατρος',
+      subtitle2: 'Προσθετική & Αποκαταστατική Οδοντιατρική',
       description:
-        'Ο Δημήτρης Π. Ζιάζιαρης είναι χειρουργός οδοντίατρος με ιδιαίτερη ενασχόληση στην προσθετική και την αποκαταστατική οδοντιατρική. Για όλες τις αποκαταστάσεις με σύνθετη ρητίνη εφαρμόζει συστηματικά απομόνωση με ελαστικό απομονωτήρα για άριστη συγκόλληση και μακροχρόνια αντοχή.',
+        'Ο Δημήτρης Π. Ζιάζιαρης είναι χειρουργός οδοντίατρος με ιδιαίτερη ενασχόληση στην προσθετική και την αποκαταστατική οδοντιατρική. Παρακολουθεί συνεχώς εκπαιδευτικά προγράμματα στους τομείς των οδοντικών και επιεμφυτευματικών αποκαταστάσεων, καθώς και των αποκαταστάσεων με σύνθετη ρητίνη, ενισχύοντας σταθερά την κλινική του εμπειρία. Σε όλες τις αποκαταστάσεις σύνθετης ρητίνης εφαρμόζει απομόνωση με ελαστικό απομονωτήρα για ιδανική συγκόλληση και μακροχρόνια αντοχή. Επιπλέον, χρησιμοποιεί τον ενδοστοματικό σαρωτή Aoralscan Elite για ακριβείς και άνετες ψηφιακές αποτυπώσεις, ενσωματώνοντας σύγχρονες ψηφιακές τεχνολογίες στην καθημερινή κλινική πράξη.',
       scanner:
         'Aoralscan Elite Intraoral Scanner για ακριβείς και άνετες ψηφιακές αποτυπώσεις',
       featureTitle1: 'Φωτογραμμετρία',
@@ -275,18 +276,22 @@ export const translations = {
       location: 'Λεβίδι, Αρκαδία'
     },
     booking: {
-      confirmTitle: 'Επιβεβαίωση Ραντεβού',
-      confirmMessage: 'Είστε σίγουροι ότι θέλετε να κλείσετε ραντεβού; Δεν είναι spam;',
+      confirmTitle: 'Επιβεβαίωση Αιτήματος',
+      confirmMessage: 'Είστε σίγουροι ότι θέλετε να υποβάλετε αίτημα για ραντεβού;',
       confirmButton: 'Ναι, είμαι σίγουρος/η',
       cancelButton: 'Άκυρο',
-      formTitle: 'Κλείστε Ραντεβού',
-      formDescription: 'Συμπληρώστε τα στοιχεία σας και θα σας καλέσουμε για επιβεβαίωση',
+      formTitle: 'Αίτημα Διαθεσιμότητας',
+      formDescription: 'Συμπληρώστε τις προτιμήσεις σας και θα σας καλέσουμε για να ορίσουμε το ραντεβού.',
       firstName: 'Όνομα',
       lastName: 'Επώνυμο',
       phone: 'Τηλέφωνο',
       email: 'Email',
-      address: 'Διεύθυνση κατοικίας',
-      preferredDates: 'Προτιμώμενες ημερομηνίες/ώρες',
+      city: 'Πόλη',
+      prefecture: 'Νομός',
+      street: 'Οδός',
+      number: 'Αριθμός',
+      address: 'Διεύθυνση', // Keep for backward compatibility if needed, though we will replace usage
+      preferredDates: 'Προτιμώμενες ημέρες/ώρες',
       serviceType: 'Τι θέλετε να κάνετε',
       serviceCleaning: 'Καθαρισμός',
       serviceFilling: 'Σφράγισμα',
@@ -294,9 +299,9 @@ export const translations = {
       otherServiceLabel: 'Περιγράψτε την υπηρεσία',
       symptoms: 'Συμπτώματα',
       urgency: 'Πόσο επείγον είναι',
-      submit: 'Υποβολή',
-      successTitle: 'Επιτυχής Υποβολή!',
-      successMessage: 'Θα σας καλέσουμε σύντομα για επιβεβαίωση του ραντεβού σας.'
+      submit: 'Υποβολή Αιτήματος',
+      successTitle: 'Το αίτημα εστάλη!',
+      successMessage: 'Θα επικοινωνήσουμε σύντομα μαζί σας για να κλείσουμε το ραντεβού σας.',
     },
     // Services
     services: {
@@ -307,62 +312,61 @@ export const translations = {
         title: "Προσθετική Οδοντιατρική",
         desc: "Αποκαταστάσεις στηριζόμενες σε δόντια και εμφυτεύματα",
         details:
-          "Ολοκληρωμένες προσθετικές λύσεις: όψεις σύνθετης ρητίνης και πορσελάνης, ένθετα/επένθετα, στεφάνες, γέφυρες και αποκαταστάσεις πλήρους τόξου. Συνεργαζόμαστε με στρατιωτικό γναθοπροσωπικό χειρουργό (Ν. Μακρής) για την τοποθέτηση εμφυτευμάτων και σύνθετες χειρουργικές πράξεις. Με το Aoralscan Elite και την ενσωματωμένη φωτογραμμετρία πετυχαίνουμε εξαιρετική ακρίβεια και προβλέψιμα αποτελέσματα."
+          "Ολοκληρωμένες προσθετικές λύσεις συμπεριλαμβανομένων οδοντικών εμφυτευμάτων, όψεων σύνθετης ρητίνης και πορσελάνης, επενθέτων, στεφανών, γεφυρών και αποκαταστάσεων πλήρους τόξου. Χρησιμοποιώντας το Aoralscan Elite με τεχνολογία φωτογραμμετρίας, επιτυγχάνουμε εξαιρετική ακρίβεια για αποκαταστάσεις στηριζόμενες σε εμφυτεύματα."
       },
       restorative: {
         title: "Αποκαταστατική Οδοντιατρική",
         desc: "Εμφράξεις και ανασυστάσεις από σύνθετη ρητίνη",
         details:
-          "Όλες οι λευκές εμφράξεις πραγματοποιούνται με χρήση ελαστικού απομονωτήρα για τέλεια απομόνωση, βέλτιστη συγκόλληση και μακροβιότητα. Εφαρμόζουμε minimal invasive τεχνικές για τη φθαρμένη οδοντοστοιχία και εργαζόμαστε με λούπες για μέγιστη ακρίβεια."
+          "Όλες οι αποκαταστάσεις από σύνθετη ρητίνη (λευκές εμφράξεις) πραγματοποιούνται με τη χρήση ελαστικού απομονωτήρα για τέλεια απομόνωση, απαραίτητη για μακροβιότητα και βέλτιστη συγκόλληση. Ειδικευόμαστε σε όψεις από σύνθετη ρητίνη και πορσελάνη, ένθετα/επένθετα, και συντηρητικές θεραπείες (minimal invasive) για αποκατάσταση της φθαρμένης οδοντοφυίας. Κάθε διαδικασία εκτελείται με λούπες με φως για μεγαλύτερη ακρίβεια."
       },
       endodontic: {
         title: "Ενδοδοντική Θεραπεία",
-        desc: "Σύγχρονες, ανώδυνες και ασφαλείς θεραπείες",
+        desc: "Σύγχρονες,ανώδυνες,γρήγορες και ασφαλείς θεραπείες",
         details:
-          "Απονευρώσεις σε 1–2 συνεδρίες στις περισσότερες περιπτώσεις, με χρήση περιστροφικών εργαλείων και σύγχρονων πρωτοκόλλων. Για δυσχερή περιστατικά υπάρχει συνεργασία με εξειδικευμένους ενδοδοντολόγους."
+          "Οι ενδοδοντικές θεραπείες (απονευρώσεις) πραγματοποιούνται σε μία έως δύο συνεδρίες στις περισσότερες περιπτώσεις. Για δύσκολα περιστατικά συνεργαζόμαστε με ειδικούς ενδοδοντολόγους που εξασφαλίζουν την καλύτερη δυνατή θεραπεία σε όλες τις περιπτώσεις."
       },
       crownLengthening: {
         title: "Επιμήκυνση Κλινικής Μύλης",
-        desc: "Χειρουργικές διαδικασίες με διαθερμία",
+        desc: "Χειρουργικές διαδικασίες με τη χρήση διαθερμίας",
         details:
-          "Η επιμήκυνση μύλης πραγματοποιείται με διαθερμία για ακριβή διαχείριση ιστών — συχνά «σώζει» σπασμένα δόντια που αλλιώς θα οδηγούνταν σε εξαγωγή."
+          "Η χειρουργική επιμήκυνση μύλης, πραγματοποιείται χρησιμοποιώντας διαθερμία. Με αυτήν την τεχνική κυριολεκτικά σώζονται σπασμένα δόντια που σε διαφορετική περίπτωση θα ήταν για εξαγωγή"
       },
       digitalWorkflow: {
         title: "Ψηφιακή Ροή Εργασίας",
-        desc: "Aoralscan Elite με ενσωματωμένη φωτογραμμετρία",
+        desc: "Aoralscan Elite - Ο μόνος ενδοστοματικός σαρωτής που ενσωματώνει την τεχνολογία της φωτογραμμετρίας",
         details:
-          "Επαναστατικές ψηφιακές αποτυπώσεις για κινητή και ακίνητη προσθετική. Σάρωση πλήρους τόξου εμφυτευμάτων με εξαιρετική ακρίβεια και ροή εργασίας CAD/CAM σε συνεργασία με πλήρως ψηφιακό οδοντοτεχνικό εργαστήριο."
+          "Επαναστατικός ενδοστοματικός σαρωτής με ενσωματωμένη τεχνολογία φωτογραμμετρίας για  σάρωση πλήρους τόξου εμφυτευμάτων με εξαιρετική ακρίβεια. Όλες οι αποτυπωσεις για κινητή και ακίνητη προσθετική γίνονται πλέον ψηφιακά."
       },
       practice: {
         title: "Ολοκληρωμένη Ψηφιακή & Διοικητική Υποστήριξη",
         desc: "Σύγχρονη υποδομή φροντίδας ασθενών",
         details:
-          "Πλήρως ψηφιακά αρχεία ασθενών, βοηθός οδοντιάτρου στην κλινική πράξη, οργάνωση ραντεβού και αυτοματοποιημένα recall για επανελέγχους/καθαρισμούς — για άψογη συνέχεια φροντίδας."
+          "Στο ιατρείο μας διαθέτουμε πλήρως ψηφιακό ιστορικό ασθενών, που μας επιτρέπει να παρακολουθούμε αναλυτικά την πορεία κάθε θεραπείας και να παρέχουμε ακριβή, εξατομικευμένη φροντίδα. Η παρουσία βοηθού οδοντιάτρου εξασφαλίζει άρτια κλινική υποστήριξη σε κάθε πράξη, ενώ η γραμματειακή μας οργάνωση φροντίζει για τον προγραμματισμό των ραντεβού και την άψογη εξυπηρέτηση των ασθενών μας. Επιπλέον, αποστέλλουμε πάντοτε ειδοποιήσεις υπενθύμισης (recalls) για επανελέγχους ή καθαρισμό, ώστε κανείς να μην χάνει τον προγραμματισμένο έλεγχο της στοματικής του υγείας."
       }
     },
-    // About
     about: {
       heading: "Σχετικά με τον Δημήτρη Π. Ζιάζιαρη",
       intro1:
-        "Καλώς ήρθατε στο προηγμένο ψηφιακό οδοντιατρείο μας στο Λεβίδι Αρκαδίας. Ο Δημήτρης Π. Ζιάζιαρης ειδικεύεται στην προσθετική — τόσο σε αποκαταστάσεις στηριζόμενες σε δόντια όσο και σε εμφυτεύματα — και στην αποκαταστατική οδοντιατρική, με έμφαση στην ακρίβεια και τη μακροβιότητα.",
+        "Καλώς ήρθατε στο προηγμένο ψηφιακό οδοντιατρείο μας στο Λεβίδι Αρκαδίας. Ο Δημήτρης Π. Ζιάζιαρης ειδικεύεται στην προσθετική οδοντιατρική — τόσο σε αποκαταστάσεις στηριζόμενες σε δόντια όσο και σε εμφυτεύματα — καθώς και στην αποκαταστατική οδοντιατρική, με έμφαση στην ακρίβεια και τη μακροβιότητα.",
       intro2:
-        "Έχει συμμετάσχει σε πολυάριθμα σεμινάρια και εκπαιδευτικά προγράμματα σε προσθετικές και επιεμφυτευματικές αποκαταστάσεις καθώς και σε αποκαταστάσεις με σύνθετη ρητίνη. Χρησιμοποιεί συστηματικά ελαστικό απομονωτήρα για ιδανική συγκόλληση και σταθερότητα των αποκαταστάσεων.",
+        "Αποφοίτησε από το 4ο Λύκειο Τρίπολης το 2010 και στη συνέχεια σπούδασε Οδοντιατρική στο Πανεπιστήμιο της Τιμισοάρας στη Ρουμανία, σε εξαετές πρόγραμμα σπουδών, από το οποίο αποφοίτησε το 2016. Από το 2017, μετά τη στρατιωτική του θητεία ως οδοντίατρος, διατηρεί το οδοντιατρείο του στο Λεβίδι, παρέχοντας υψηλού επιπέδου οδοντιατρική φροντίδα με σύγχρονες μεθόδους και τεχνολογίες.",
       intro3:
-        "Αξιοποιούμε τον ενδοστοματικό σαρωτή Aoralscan Elite για ακριβείς και άνετες ψηφιακές αποτυπώσεις και ενσωματώνουμε σύγχρονες ψηφιακές τεχνολογίες σε κάθε στάδιο θεραπείας. Ο Δημήτρης αποφοίτησε από το 4ο Λύκειο Τρίπολης (2010) και τη Σχολή Οδοντιατρικής Παν. Τιμισοάρα (2016), ενώ από το 2017 διατηρεί οδοντιατρείο στο Λεβίδι.",
+        "Παράλληλα, συμμετέχει συνεχώς σε εκπαιδευτικά προγράμματα και σεμινάρια με επίκεντρο την προσθετική και την αποκαταστατική οδοντιατρική, εξελίσσοντας διαρκώς τις γνώσεις και την κλινική του εμπειρία.",
       feature1Title: "Ψηφιακή Αριστεία",
       feature1Desc: "Aoralscan Elite με τεχνολογία φωτογραμμετρίας",
       feature2Title: "Εργασία Ακριβείας",
-      feature2Desc: "Λούπες μεγέθυνσης και αυστηρά πρωτόκολλα απομόνωσης",
+      feature2Desc: "Λούπες με φως για μεγαλύτερη ακρίβεια",
       feature3Title: "Επαγγελματική Ομάδα",
-      feature3Desc: "Συνεργασία με γναθοπροσωπικό χειρουργό & βοηθό οδοντιάτρου",
+      feature3Desc: "Συνεργασία με γναθοχειρουργό και βοηθό οδοντιάτρου",
       feature4Title: "Επικεντρωμένοι στον Ασθενή",
       feature4Desc: "Ψηφιακά αρχεία και αυτοματοποιημένο σύστημα υπενθύμισης",
       missionTitle: "Η Αποστολή Μας",
       mission:
-        "Να προσφέρουμε υψηλής ποιότητας προσθετική και αποκαταστατική οδοντιατρική με τις πιο προηγμένες ψηφιακές τεχνολογίες — με ακρίβεια, άνεση και διαρκές αποτέλεσμα.",
+        "Να παρέχουμε εξαιρετική προσθετική και αποκαταστατική οδοντιατρική χρησιμοποιώντας τις πιο προηγμένες ψηφιακές τεχνολογίες, διασφαλίζοντας ακρίβεια, άνεση και διαρκή αποτελέσματα για κάθε ασθενή.",
       facilityTitle: "Υπερσύγχρονες Εγκαταστάσεις",
       facilityDesc:
-        "Ψηφιακά αρχεία ασθενών • Αυτόματες υπενθυμίσεις (recall) • Αποκαταστάσεις την ίδια μέρα"
+        "Ψηφιακά αρχεία ασθενών • Αυτοματοποιημένο σύστημα υπενθύμισης • Αποκαταστάσεις την ίδια μέρα"
     },
     // Contact
     contact: {
@@ -371,17 +375,17 @@ export const translations = {
         "Κλείστε το ραντεβού σας και ζήστε την εμπειρία της προηγμένης ψηφιακής οδοντιατρικής",
       callTitle: "Καλέστε μας",
       callDesc: "Έτοιμοι να σας βοηθήσουμε με τις οδοντιατρικές σας ανάγκες",
-      callButton: "Επικοινωνήστε για Αριθμό Τηλεφώνου",
+      callButton: "Καλέστε Τώρα",
       visitTitle: "Επισκεφθείτε μας",
-      visitLocation: "Λεβίδι, Αρκαδία<br />Ελλάδα",
+      visitLocation: "Λεβίδι, Αρκαδία\nΕλλάδα",
       visitButton: "Λάβετε Οδηγίες",
       scheduleTitle: "Προγραμματισμός",
       scheduleDesc: "Κλείστε το ραντεβού σας online ή τηλεφωνικά",
       scheduleButton: "Κλείστε Ραντεβού",
       hoursTitle: "Ώρες Λειτουργίας",
-      monFri: "Δευτέρα - Παρασκευή:",
-      saturday: "Σάββατο:",
-      sunday: "Κυριακή:",
+      monFri: "Δευτέρα - Παρασκευή:9:00 AM - 6:00 PM",
+      saturday: "Σάββατο:9:00 AM - 2:00 PM",
+      sunday: "Κυριακή:Κλειστά",
       closed: "Κλειστά",
       emergencyDesc: "Έκτακτα ραντεβού διαθέσιμα εκτός κανονικών ωρών",
       emergencyButton: "Επικοινωνία Έκτακτης Ανάγκης"
@@ -399,128 +403,133 @@ export const translations = {
     // Hero
     hero: {
       title: 'Dimitris P. Ziaziaris',
-      subtitle: 'Prosthetic & Restorative Dentistry',
+      subtitle: 'Dentist',
+      subtitle2: 'Prosthetic & Restorative Dentistry',
       description:
-        'Dimitris P. Ziaziaris is a dental surgeon focused on prosthetic and restorative dentistry. All composite restorations are performed with rubber dam isolation to ensure excellent bonding and long-term durability.',
+        'Dimitris P. Ziaziaris is an oral surgeon with a particular focus on prosthetic and restorative dentistry. He continuously follows educational programs in dental and implant restorations as well as composite resin restorations, steadily strengthening his clinical experience. For all composite resin restorations he applies rubber dam isolation to achieve ideal bonding and long-term durability. Additionally, he uses the Aoralscan Elite intraoral scanner for precise and comfortable digital impressions, incorporating modern digital technologies into everyday clinical practice.',
       scanner:
-        'Aoralscan Elite Intraoral Scanner for precise and comfortable digital impressions',
+        'Aoralscan Elite intraoral scanner for precise and comfortable digital impressions',
       featureTitle1: 'Photogrammetry',
       feature1: 'Full-arch implant digital scanning',
       featureTitle2: 'Speed',
       feature2: 'Same-day restorations in 4–5 hours',
       featureTitle3: 'Precision',
-      feature3: 'Rubber dam isolation for all fillings',
+      feature3: 'Rubber dam isolation for all composite restorations',
       bookAppt: 'Book Appointment',
       location: 'Levidi, Arcadia'
     },
     booking: {
-      confirmTitle: 'Appointment Confirmation',
-      confirmMessage: 'Are you sure you want to book an appointment? This is not spam?',
+      confirmTitle: 'Request Confirmation',
+      confirmMessage: 'Are you sure you want to submit an appointment request?',
       confirmButton: 'Yes, I am sure',
       cancelButton: 'Cancel',
-      formTitle: 'Book an Appointment',
-      formDescription: 'Fill in your details and we will call you to confirm',
+      formTitle: 'Request Availability',
+      formDescription: 'Fill in your preferences and we will call you to schedule the appointment.',
       firstName: 'First Name',
       lastName: 'Last Name',
       phone: 'Phone',
       email: 'Email',
-      address: 'Home Address',
+      city: 'City',
+      prefecture: 'Region/State',
+      street: 'Street',
+      number: 'Number',
+      address: 'Address',
       preferredDates: 'Preferred dates/times',
-      serviceType: 'What do you need',
+      serviceType: 'What would you like to have done',
       serviceCleaning: 'Cleaning',
       serviceFilling: 'Filling',
-      serviceOther: 'Something else',
+      serviceOther: 'Other',
       otherServiceLabel: 'Describe the service',
       symptoms: 'Symptoms',
       urgency: 'How urgent is it',
-      submit: 'Submit',
-      successTitle: 'Successful Submission!',
-      successMessage: 'We will call you soon to confirm your appointment.'
+      submit: 'Submit Request',
+      successTitle: 'Request Sent!',
+      successMessage: 'We will contact you shortly to schedule your appointment.'
     },
     // Services
     services: {
       heading: "Our Specialized Services",
       subheading:
-        "Modern prosthetic and restorative dentistry powered by advanced digital technologies",
+        "Advanced prosthetic and restorative dentistry using modern digital technologies",
       prosthetic: {
         title: "Prosthetic Dentistry",
         desc: "Tooth- and implant-supported restorations",
         details:
-          "Comprehensive solutions: composite and porcelain veneers, inlays/onlays, crowns, bridges, and full-arch rehabilitations. We collaborate with a military oral and maxillofacial surgeon (N. Makris) for implant placement and complex surgery. With Aoralscan Elite photogrammetry we deliver exceptional accuracy and predictable outcomes."
+          "Comprehensive prosthetic solutions including dental implants, composite and porcelain veneers, inlays/onlays, crowns, bridges and full-arch restorations. Using the Aoralscan Elite with photogrammetry technology, we achieve exceptional accuracy for implant-supported restorations."
       },
       restorative: {
         title: "Restorative Dentistry",
-        desc: "Composite fillings and build-ups",
+        desc: "Fillings and reconstructions with composite resin",
         details:
-          "All white fillings are placed under rubber dam isolation for ideal bonding and longevity. Minimal-invasive protocols for worn dentition; all procedures performed under magnification for maximum precision."
+          "All composite resin restorations (white fillings) are performed using rubber dam isolation for perfect isolation — essential for longevity and optimal bonding. We specialize in composite and porcelain veneers, inlays/onlays, and conservative (minimal invasive) treatments for restoration of worn dentition. Every procedure is performed with loupe-mounted lights for greater precision."
       },
       endodontic: {
         title: "Endodontic Therapy",
-        desc: "Modern, painless and safe treatments",
+        desc: "Modern, painless, fast and safe treatments",
         details:
-          "Root canal treatments typically completed in 1–2 visits using rotary instrumentation and contemporary protocols. Collaboration with specialist endodontists for challenging cases."
+          "Endodontic treatments (root canals) are usually completed in one to two sessions in most cases. For difficult cases we cooperate with specialist endodontists who ensure the best possible treatment in every case."
       },
       crownLengthening: {
         title: "Crown Lengthening",
-        desc: "Surgical procedures with diathermy",
+        desc: "Surgical procedures using diathermy",
         details:
-          "Diathermy-assisted tissue management to ‘save’ otherwise hopeless, fractured teeth and enable definitive restorations."
+          "Clinical crown lengthening is performed using diathermy. With this technique fractured teeth that would otherwise require extraction can literally be saved."
       },
       digitalWorkflow: {
         title: "Digital Workflow",
-        desc: "Aoralscan Elite with integrated photogrammetry",
+        desc: "Aoralscan Elite - the only intraoral scanner with integrated photogrammetry",
         details:
-          "State-of-the-art digital impressions for removable and fixed prosthetics. Accurate full-arch implant scans and CAD/CAM workflow in partnership with a fully digital dental laboratory."
+          "A revolutionary intraoral scanner with built-in photogrammetry technology for full-arch implant scanning with outstanding accuracy. All impressions for removable and fixed prosthetics are now captured digitally."
       },
       practice: {
-        title: "Integrated Digital & Administrative Support",
+        title: "Comprehensive Digital & Administrative Support",
         desc: "Modern patient-care infrastructure",
         details:
-          "Fully digital patient records, chairside dental assistant, structured scheduling and automated recalls for check-ups/cleanings — ensuring continuity of care."
+          "In our practice we maintain fully digital patient records that allow us to closely monitor the progress of each treatment and provide accurate, personalized care. The presence of a dental assistant ensures excellent clinical support during procedures, while our administrative team handles scheduling and provides seamless patient service. We also send automated recall reminders for follow-ups and cleanings so nobody misses their scheduled oral health check."
       }
     },
     // About
     about: {
       heading: "About Dimitris P. Ziaziaris",
       intro1:
-        "Welcome to our advanced digital dental practice in Levidi, Arcadia. Dimitris P. Ziaziaris specializes in prosthetic dentistry — both tooth- and implant-supported — and restorative dentistry, with a focus on precision and longevity.",
+        "Welcome to our advanced digital dental practice in Levidi, Arcadia. Dimitris P. Ziaziaris specializes in prosthetic dentistry — both tooth- and implant-supported restorations — as well as restorative dentistry, with an emphasis on precision and longevity.",
       intro2:
-        "He has completed numerous courses in prosthetic/implant restorations and composite resin, continuously advancing his knowledge and clinical experience. Rubber dam isolation is consistently used to ensure ideal bonding and durability.",
+        "He graduated from the 4th High School of Tripoli in 2010 and then studied Dentistry at the University of Timișoara in Romania in a six-year program, graduating in 2016. Since 2017, after his military service as a dentist, he has maintained his practice in Levidi, providing high-quality dental care using modern methods and technologies.",
       intro3:
-        "We use the Aoralscan Elite intraoral scanner for precise, comfortable digital impressions and integrate modern digital technologies throughout treatment. Dimitris graduated from the 4th High School of Tripoli (2010) and the Dental School of Timișoara (2016). Since 2017 he runs his practice in Levidi.",
+        "He continuously participates in training programs and seminars focused on prosthetic and restorative dentistry, constantly developing his knowledge and clinical experience. We use the Aoralscan Elite intraoral scanner for precise and comfortable digital impressions and integrate modern digital technologies at every stage of treatment.",
       feature1Title: "Digital Excellence",
-      feature1Desc: "Aoralscan Elite with photogrammetry",
+      feature1Desc: "Aoralscan Elite with photogrammetry technology",
       feature2Title: "Precision Work",
-      feature2Desc: "Magnification loupes and strict isolation protocols",
+      feature2Desc: "Loupe-mounted lights for increased accuracy",
       feature3Title: "Professional Team",
-      feature3Desc: "Collaboration with maxillofacial surgeon & chairside assistant",
-      feature4Title: "Patient-Centered",
-      feature4Desc: "Digital records and automated recall system",
+      feature3Desc: "Collaboration with an oral/maxillofacial surgeon and dental assistant",
+      feature4Title: "Patient-Focused",
+      feature4Desc: "Digital records and an automated recall system",
       missionTitle: "Our Mission",
       mission:
-        "To deliver high-quality prosthetic and restorative dentistry using advanced digital technologies — with precision, comfort and lasting results.",
+        "To provide outstanding prosthetic and restorative dentistry using the most advanced digital technologies, ensuring precision, comfort and lasting results for every patient.",
       facilityTitle: "State-of-the-Art Facility",
       facilityDesc:
-        "Digital patient records • Automated recalls • Same-day restorations"
+        "Digital patient records • Automated recall system • Same-day restorations"
     },
     // Contact
     contact: {
       heading: "Contact Our Practice",
       subheading:
-        "Schedule your appointment and experience advanced digital dentistry",
+        "Book your appointment and experience advanced digital dentistry",
       callTitle: "Call Us",
       callDesc: "Ready to help with your dental needs",
-      callButton: "Contact for Phone Number",
+      callButton: "Call Now",
       visitTitle: "Visit Us",
-      visitLocation: "Levidi, Arcadia<br />Greece",
+      visitLocation: "Levidi, Arcadia\nGreece",
       visitButton: "Get Directions",
       scheduleTitle: "Schedule",
       scheduleDesc: "Book your appointment online or by phone",
       scheduleButton: "Book Appointment",
       hoursTitle: "Office Hours",
-      monFri: "Monday - Friday:",
-      saturday: "Saturday:",
-      sunday: "Sunday:",
+      monFri: "Monday - Friday: 9:00 AM - 6:00 PM",
+      saturday: "Saturday: 9:00 AM - 2:00 PM",
+      sunday: "Sunday: Closed",
       closed: "Closed",
       emergencyDesc: "Emergency appointments available outside regular hours",
       emergencyButton: "Emergency Contact"
