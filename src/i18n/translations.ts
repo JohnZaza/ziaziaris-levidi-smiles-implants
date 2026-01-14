@@ -302,6 +302,13 @@ export const translations = {
       submit: 'Υποβολή Αιτήματος',
       successTitle: 'Το αίτημα εστάλη!',
       successMessage: 'Θα επικοινωνήσουμε σύντομα μαζί σας για να κλείσουμε το ραντεβού σας.',
+      gdprLabel: 'Συναινώ στην επεξεργασία των προσωπικών μου δεδομένων για τον προγραμματισμό του ραντεβού, σύμφωνα με την Πολιτική Απορρήτου.',
+      gdprError: 'Παρακαλώ αποδεχτείτε τους όρους προστασίας δεδομένων για να συνεχίσετε.',
+      privacyPolicyLink: 'Πολιτική Απορρήτου',
+      privacyPolicyTitle: 'Πολιτική Απορρήτου & Προστασίας Δεδομένων',
+      privacyPolicyContent: `Η προστασία των προσωπικών σας δεδομένων είναι προτεραιότητά μας. Τα στοιχεία που μας παρέχετε (Όνομα, Επώνυμο, Τηλέφωνο, Email, Διεύθυνση) χρησιμοποιούνται αποκλειστικά για την επικοινωνία μαζί σας και τον προγραμματισμό του οδοντιατρικού σας ραντεβού.
+
+Δεν μοιραζόμαστε τα δεδομένα σας με τρίτους και τα διαγράφουμε μόλις ολοκληρωθεί ο σκοπός της επεξεργασίας τους ή εφόσον το ζητήσετε. Υποβάλλοντας αυτό το αίτημα, συμφωνείτε με την επεξεργασία αυτή.`,
     },
     // Services
     services: {
@@ -454,7 +461,14 @@ export const translations = {
       urgency: 'How urgent is it',
       submit: 'Submit Request',
       successTitle: 'Request Sent!',
-      successMessage: 'We will contact you shortly to schedule your appointment.'
+      successMessage: 'We will contact you shortly to schedule your appointment.',
+      gdprLabel: 'I consent to the processing of my personal data for the purpose of scheduling an appointment, in accordance with the Privacy Policy.',
+      gdprError: 'Please accept the data protection terms to continue.',
+      privacyPolicyLink: 'Privacy Policy',
+      privacyPolicyTitle: 'Privacy & Data Protection Policy',
+      privacyPolicyContent: `Your privacy is our priority. The information you provide (First Name, Last Name, Phone, Email, Address) is used exclusively for contacting you and scheduling your dental appointment.
+
+We do not share your data with third parties and delete it once the processing purpose is fulfilled or upon your request. By submitting this request, you agree to this processing.`,
     },
     // Services
     services: {

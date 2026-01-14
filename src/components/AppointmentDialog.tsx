@@ -22,6 +22,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar } from 'lucide-react';
@@ -35,6 +36,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   const [showConfirm, setShowConfirm] = useState(false);
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -52,6 +54,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
     otherService: '',
     symptoms: '',
     urgency: [5],
+    gdprAccepted: false,
   });
 
   // 🔹 Ετικέτες ημερών ανάλογα με τη γλώσσα
@@ -100,6 +103,15 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
       return;
     }
 
+    if (!formData.gdprAccepted) {
+      toast({
+        title: language === 'el' ? 'Σφάλμα' : 'Error',
+        description: t.booking.gdprError,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     // Εμφάνιση επιβεβαίωσης
     setShowConfirm(true);
   };
@@ -127,6 +139,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               : formData.serviceType,
           symptoms: formData.symptoms,
           urgency: formData.urgency[0],
+          gdprConsent: formData.gdprAccepted ? "Accepted" : "Not Accepted",
         }),
       });
 
@@ -152,6 +165,7 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
           otherService: '',
           symptoms: '',
           urgency: [5],
+          gdprAccepted: false,
         });
 
         setShowConfirm(false);
@@ -186,6 +200,23 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
             </AlertDialogCancel>
             <AlertDialogAction onClick={handleConfirmSubmit}>
               {t.booking.confirmButton}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* 🔹 Privacy Policy Dialog */}
+      <AlertDialog open={showPrivacyPolicy} onOpenChange={setShowPrivacyPolicy}>
+        <AlertDialogContent className="max-w-[600px] max-h-[80vh] overflow-y-auto">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t.booking.privacyPolicyTitle}</AlertDialogTitle>
+            <AlertDialogDescription className="text-foreground whitespace-pre-wrap">
+              {t.booking.privacyPolicyContent}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setShowPrivacyPolicy(false)}>
+              {language === 'el' ? 'Κλείσιμο' : 'Close'}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -393,12 +424,44 @@ const AppointmentDialog = ({ open, onOpenChange }: AppointmentDialogProps) => {
               </div>
             </div>
 
+            {/* GDPR Consent */}
+            <div className="flex items-start space-x-2 pt-2">
+              <Checkbox
+                id="gdpr"
+                checked={formData.gdprAccepted}
+                onCheckedChange={(checked) =>
+                  setFormData({ ...formData, gdprAccepted: checked === true })
+                }
+              />
+              <div className="grid gap-1.5 leading-none">
+                <label
+                  htmlFor="gdpr"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  {t.booking.gdprLabel.split(t.booking.privacyPolicyLink).map((part, i, arr) => (
+                    <React.Fragment key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <button
+                          type="button"
+                          onClick={() => setShowPrivacyPolicy(true)}
+                          className="text-primary hover:underline font-semibold"
+                        >
+                          {t.booking.privacyPolicyLink}
+                        </button>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </label>
+              </div>
+            </div>
+
             <Button type="submit" className="w-full bg-primary hover:bg-primary/90 mt-6">
               {t.booking.submit}
             </Button>
           </form>
         </DialogContent>
-      </Dialog>
+      </Dialog >
     </>
   );
 };
